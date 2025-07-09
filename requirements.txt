@@ -1,0 +1,12 @@
+west>=0.14.0
+pyelftools
+pyyaml
+colorama
+pyserial
+intelhex
+cryptography
+cbor
+pytest
+pytest-xdist
+psutil
+
