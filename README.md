@@ -1,8 +1,8 @@
 # Bluetooth Direction Finding Using Angle of Arrival (AoA)
 
 ### Directory Structure
-To verify the Implementation phase outputs please check OUTPUT AND PHASES
-To verify the cadidate learning please refer BLUETOOTH DIRECTION FINDING.pdf
+#### To verify the Implementation phase outputs please check OUTPUT AND PHASES
+#### To verify the cadidate learning please refer BLUETOOTH DIRECTION FINDING.pdf
 
 ```bash
 nrf5340_project/
