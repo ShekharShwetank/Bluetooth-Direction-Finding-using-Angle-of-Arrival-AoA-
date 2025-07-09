@@ -1,0 +1,77 @@
+# Zephyr/West build artifacts
+build/
+*.log
+*.pyc
+*.pyo
+*.swp
+*.swo
+*.swn
+*.swm
+*.swn
+*.bak
+*.tmp
+*.orig
+*.rej
+*.out
+*.o
+*.d
+*.elf
+*.bin
+*.hex
+*.map
+*.lst
+*.exe
+
+# VSCode settings
+.vscode/
+
+# Python virtual environments
+venv/
+.nrf5340_venv/
+*.egg-info/
+__pycache__/
+
+# CMake and Ninja build files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+*.ninja
+.ninja_deps
+.ninja_log
+
+# Zephyr/West workspace files
+/.west/
+west.log
+
+# Zephyr config and generated files
+zephyr/.config
+zephyr/include/generated/
+zephyr/zephyr.elf
+zephyr/zephyr.bin
+zephyr/zephyr.hex
+zephyr/zephyr.map
+zephyr/zephyr.lst
+zephyr/zephyr.exe
+
+# MCUboot and DFU artifacts
+mcuboot_build/
+dfu/
+*.img
+
+# Temporary files
+*.~*
+*~
+.DS_Store
+Thumbs.db
+
+# Tools output
+tools/bsim/bin/*.exe
+tools/bsim/bin/*.out
+tools/bsim/bin/*.log
+
+# User-specific files
+*.user
+*.sublime-workspace
+*.sublime-project
+

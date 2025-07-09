@@ -1,0 +1,8 @@
+[manifest]
+path = nrf
+file = west.yml
+group-filter = +babblesim
+
+[zephyr]
+base = zephyr
+
