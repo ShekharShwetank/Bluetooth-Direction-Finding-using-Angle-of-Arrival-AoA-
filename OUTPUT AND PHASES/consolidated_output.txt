@@ -1,13 +1,6 @@
-PHASE 1: QEMU
-
-        Goal: Establish a basic build and run environment.
-
-        Outcome: Successfully built a minimal application for the qemu_cortex_m3 target. However, we discovered this target was too limited for our needs, leading to the 
-
-no runners.yaml error.  This phase was a crucial learning step.
-
-
 ####PHASE 1: QEMU:
+
+
 (nrf5340_venv) ank@ank-Victus-by-HP-Gaming-Laptop-15-fb0xxx:~/Desktop/LVLALPHA/nrf5340_project/applications/aoa_demo$ rm -rf build
 (nrf5340_venv) ank@ank-Victus-by-HP-Gaming-Laptop-15-fb0xxx:~/Desktop/LVLALPHA/nrf5340_project/applications/aoa_demo$ west build -b qemu_cortex_m3 .
 -- west build: generating a build system
@@ -85,14 +78,7 @@ ninja: no work to do.
 [3/3] Completed 'aoa_demo'
 
 
-
-
 ####PHASE 2: NATIVE SIM:
-PHASE 2: NATIVE SIM
-
-    Goal: Pivot to a more reliable simulation target.
-
-    Outcome: Successfully built the application for the native_sim target, proving the core code and configuration were valid.  This confirmed our toolchain was working correctly.
 
 (nrf5340_venv) ank@ank-Victus-by-HP-Gaming-Laptop-15-fb0xxx:~/Desktop/LVLALPHA/nrf5340_project/applications/aoa_demo$ west build -b native_sim -- -DCONFIG_MCUBOOT_SIGNATURE_KEY_FILE=\"/home/ank/mcuboot-key-ec-p256.pem\"
 -- west build: generating a build system
@@ -168,12 +154,7 @@ Generating files from /home/ank/Desktop/LVLALPHA/nrf5340_project/applications/ao
 [3/3] Completed 'aoa_demo'
 
 
-###PHASE 3: nrf5340bsim + babblesim:
-PHASE 3: nrf5340bsim + babblesim
-
-    Goal: Target a simulator that matches our final hardware (nRF5340).
-
-    Outcome: Successfully installed the BabbleSim simulator and built the firmware for the nrf5340bsim/nrf5340/cpuapp target.  This was a major step in aligning our development with the project's SoC requirement. We also successfully ran the non-Bluetooth version of the code in this environment. 
+####PHASE 3: nrf5340bsim + babblesim:
 
 (nrf5340_venv) ank@ank-Victus-by-HP-Gaming-Laptop-15-fb0xxx:~/Desktop/LVLALPHA/nrf5340_project/applications/aoa_demo$ west build -b nrf5340bsim/nrf5340/cpuapp -- -DCONFIG_MCUBOOT_SIGNATURE_KEY_FILE=\"/home/ank/mcuboot-key-ec-p256.pem\"
 -- west build: generating a build system
@@ -281,25 +262,6 @@ Stopped at 18785.000s
 
 PHASE 4 & 5: Implementing Bluetooth
 
-    Goal: Add Bluetooth advertising functionality.
-
-    Outcome: We successfully added the Bluetooth stack and advertising logic. We encountered and debugged several issues:
-
-        The application failed to start because it was run without the BabbleSim PHY simulator, resulting in the 
-
-        Endpoint binding failed with -11 error. 
-
-We pivoted to the 
-
-nrf52_bsim board which had better runner support, and successfully initialized the Bluetooth stack. 
-
-We debugged a final runtime error (
-
-err -22)  related to an incorrect advertising parameter, resulting in a 
-
-            fully functional Bluetooth advertising application.
-
-
 ### PHASE 4: run without a BabbleSim phy (-nosim)
 (nrf5340_venv) ank@ank-Victus-by-HP-Gaming-Laptop-15-fb0xxx:~/Desktop/LVLALPHA/nrf5340_project/applications/aoa_demo$ rm -rf build
 (nrf5340_venv) ank@ank-Victus-by-HP-Gaming-Laptop-15-fb0xxx:~/Desktop/LVLALPHA/nrf5340_project/applications/aoa_demo$ west build -b nrf5340bsim/nrf5340/cpuapp -- -DCONFIG_MCUBOOT_SIGNATURE_KEY_FILE=\"/home/ank/mcuboot-key-ec-p256.pem\"
@@ -401,8 +363,6 @@ d_00: @00:00:02.000031  (CPU:0): Main function complete. Handing over to BLE sta
 Stopped at 357305076.000s
 
 application tried to initialize the Bluetooth stack (bt_enable()), which then tried to find the virtual radio hardware. Since the radio environment wasn't running, the driver failed to connect. This is what Endpoint binding failed with -11 means.
-
-
 
 
 ####PHASE 5: with nrf52_bsim (close to nrf5340, easier to simulate and verify)
