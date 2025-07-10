@@ -260,7 +260,7 @@ struct bt_df_adv_cte_tx_param cte_params = {
 The implementation includes secure OTA update support through MCUboot:
 
 ```bash
-west build -b nrf5340bsim/nrf5340/cpuapp --pristine -- -DCONFIG_MCUBOOT_SIGNATURE_KEY_FILE='"../../../../mcuboot-key-ec-p256.pem"'
+west build -b nrf5340bsim/nrf5340/cpuapp --pristine -- -DCONFIG_MCUBOOT_SIGNATURE_KEY_FILE='"path/to/secure/key.pem"'
 ```
 
 
@@ -269,7 +269,7 @@ west build -b nrf5340bsim/nrf5340/cpuapp --pristine -- -DCONFIG_MCUBOOT_SIGNATUR
 Secure firmware signing using EC-P256 keys:
 
 ```bash
-mcuboot-key-ec-p256.pem  # Private key for firmware signing
+'"key.pem"'  # Private key for firmware signing
 ```
 
 
