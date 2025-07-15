@@ -2254,8 +2254,9 @@ d_01: @00:00:02.000031  (CPU:0): [00:00:02.000,030] <err> bt_hci_core: HCI drive
 d_01: @00:00:02.000031  (CPU:0): Bluetooth init failed (err -11)
 AoA simulation completed successfully
 (nrf5340_venv) ank@ank-Victus-by-HP-Gaming-Laptop-15-fb0xxx:~/Desktop/LVLALPHA/nrf5340_project/applications/aoa_rx$
+
 Error -11 is the POSIX error code EAGAIN, which means "Resource temporarily unavailable."
-simulation infrastructure/resource issue, not a bug in your application code.
+simulation infrastructure/resource issue, not a issue in application code.
 
 
 
